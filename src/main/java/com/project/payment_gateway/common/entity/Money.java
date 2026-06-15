@@ -1,10 +1,13 @@
 package com.project.payment_gateway.common.entity;
 
 import jakarta.persistence.Embeddable;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Embeddable
 @NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Money {
     private int amountUnits;
     private String currency;

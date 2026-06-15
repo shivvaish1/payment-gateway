@@ -3,11 +3,17 @@ package com.project.payment_gateway.merchant.entity;
 import com.project.payment_gateway.common.enums.BusinessType;
 import com.project.payment_gateway.common.enums.MerchantStatus;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "merchant")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Merchant {
 
     @Id
