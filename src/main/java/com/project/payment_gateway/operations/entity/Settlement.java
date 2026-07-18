@@ -1,5 +1,6 @@
 package com.project.payment_gateway.operations.entity;
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import com.project.payment_gateway.common.entity.Money;
 import com.project.payment_gateway.common.enums.SettlementStatus;
 import jakarta.persistence.*;
@@ -9,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "settlement")
-public class Settlement {
+public class Settlement extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

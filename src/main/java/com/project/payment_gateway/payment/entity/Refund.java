@@ -1,5 +1,6 @@
 package com.project.payment_gateway.payment.entity;
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import com.project.payment_gateway.common.entity.Money;
 import com.project.payment_gateway.common.enums.RefundStatus;
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Refund {
+public class Refund extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

@@ -1,5 +1,6 @@
 package com.project.payment_gateway.payment.entity;
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import com.project.payment_gateway.common.entity.Money;
 import com.project.payment_gateway.common.enums.OrderStatus;
 import jakarta.persistence.*;
@@ -13,13 +14,19 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
-@Table(name = "order_record")
+@Table(name = "order_record",
+        indexes = {
+                @Index(name = "idx_order_id_merchant_id", columnList = "id, merchant_id"),
+                @Index(name = "idx_order_merchant_id", columnList = "merchant_id")
+
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderRecord {
+public class OrderRecord extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

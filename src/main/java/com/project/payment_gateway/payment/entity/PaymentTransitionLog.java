@@ -1,6 +1,7 @@
 package com.project.payment_gateway.payment.entity;
 
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import com.project.payment_gateway.common.enums.PaymentActor;
 import com.project.payment_gateway.common.enums.PaymentEvent;
 import com.project.payment_gateway.common.enums.PaymentStatus;
@@ -11,13 +12,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "payment_transition_log")
+@Table(name = "payment_transition_log",indexes = {
+        @Index(name = "idx_payment_transition_payment_id",columnList = "payment_id")
+}
+)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PaymentTransitionLog {
+public class PaymentTransitionLog extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

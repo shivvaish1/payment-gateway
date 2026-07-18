@@ -1,10 +1,11 @@
 package com.project.payment_gateway.operations.entity;
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "settlement_payment")
-public class SettlementPayment {
+public class SettlementPayment  {
 
     @EmbeddedId
     private SettlementPaymentId id;

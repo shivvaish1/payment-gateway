@@ -1,5 +1,6 @@
 package com.project.payment_gateway.payment.entity;
 
+import com.project.payment_gateway.common.entity.BaseEntity;
 import com.project.payment_gateway.common.entity.Money;
 import com.project.payment_gateway.common.enums.PaymentMethod;
 import com.project.payment_gateway.common.enums.PaymentStatus;
@@ -13,13 +14,18 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "payment",
+        indexes = {
+                @Index(name = "idx_payment_order_id", columnList = "order_id"),
+                @Index(name = "idx_payment_merchant_id", columnList = "merchant_id")
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Payment {
+public class Payment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.UUID)
@@ -51,6 +57,8 @@ public class Payment {
 
     @Column(length = 100)
     private String bankReference;
+    @Column(length = 100)
+    private String processorReference;
 
     @Column(length = 100)
     private String errorCode;
